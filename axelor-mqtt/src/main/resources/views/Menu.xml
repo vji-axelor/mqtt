@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<menuitem name="mqtt-root" title="Mqtt" order="-108 " icon=""
+		icon-background="#F53607" />
+
+
+	<menuitem name="mqtt-root-trash-can" parent="mqtt-root"
+		title="Trash Can" action="mqtt.trash.can.view" />
+
+	<action-view name="mqtt.trash.can.view" title="Tresh Can"
+		model="com.axelor.apps.mqtt.db.TrashCan">
+		<view type="grid" name="trash-can-grid" />
+		<view type="form" name="trash-can-form" />
+	</action-view>
+
+	<menuitem name="mqtt-root-sensor" parent="mqtt-root"
+		title="Device Info" action="mqtt.sensor.view" />
+
+
+	<action-view name="mqtt.sensor.view" title="Device Info"
+		model="com.axelor.apps.mqtt.db.Sensor">
+		<view type="grid" name="sensor-grid" />
+		<view type="form" name="sensor-form" />
+	</action-view>
+
+
+	<menuitem name="mqtt-root-device" parent="mqtt-root"
+		title="Device" action="mqtt.device.view" />
+
+	<action-view name="mqtt.device.view" title="Device"
+		model="com.axelor.apps.mqtt.db.Device">
+		<view type="grid" name="device-grid" />
+		<view type="form" name="device-form" />
+	</action-view>
+	
+	<menuitem name="mqtt-root-property" parent="mqtt-root"
+		title="Property" action="mqtt.proprty.view" />
+
+	<action-view name="mqtt.proprty.view" title="Property"
+		model="com.axelor.apps.mqtt.db.Property">
+		<view type="grid" name="property-grid" />
+		<view type="form" name="property-form" />
+	</action-view>
+	
+	<menuitem name="mqtt-root-data-demo" parent="mqtt-root"
+		title="Data" action="mqtt.data.demo.view" />
+
+	<action-view name="mqtt.data.demo.view" title="Property"
+		model="com.axelor.apps.mqtt.db.DeviceData">
+		<view type="grid" name="device-data-grid" />
+		<view type="form" name="device-data-form" />
+	</action-view>
+
+
+	<menuitem name="trash-can-address" parent="mqtt-root"
+		title="Trash Address" action="referential.conf.address" order="110"/>
+
+	<action-view name="referential.conf.address" title="Addresses"
+		model="com.axelor.apps.base.db.Address" >
+		<view type="grid" name="address-grid" />
+		<view type="form" name="address-form" />
+		<view-param name="search-filters" value="address-filters"/>
+		<context name="fromMain" expr="eval:true"/>
+		<context name="_duplicateFinderFields" expr=" addressL4;addressL6"/>
+	</action-view>
+
+	<menuitem name="mqtt-root-dashboard" parent="mqtt-root"
+		title="Dashboard" action="mqtt.dashboard.view" />
+
+	<action-view name="mqtt.dashboard.view" title="Dashboard">
+		<view type="dashboard" name="mqtt.dashboard" />
+	</action-view>
+	
+
+
+</object-views>

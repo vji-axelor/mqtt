@@ -1,0 +1,17 @@
+apply plugin: "com.axelor.app-module"
+
+apply from: "../version.gradle"
+
+apply {
+	version = openSuiteVersion
+}
+
+axelor {
+	title "Axelor Mqtt"
+	description "Axelor RKU Module"
+}
+
+dependencies {
+	compile project(":modules:axelor-base")
+	compile group: 'org.apache.clerezza.ext', name: 'org.json.simple', version: '0.4'
+}
